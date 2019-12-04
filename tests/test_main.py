@@ -1,9 +1,9 @@
 import pytest
 
-from semver import parse_constraint
 from semver import Version
 from semver import VersionRange
 from semver import VersionUnion
+from semver import parse_constraint
 
 
 @pytest.mark.parametrize(

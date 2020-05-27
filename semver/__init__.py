@@ -54,7 +54,7 @@ def parse_single_constraint(constraint):  # type: (str) -> VersionConstraint
         return VersionRange()
 
     # Tilde range
-    m = TILDE_CONSTRAINT.match(constraint)
+    m = TILDE_CONSTRAINT.fullmatch(constraint)
     if m:
         version = Version.parse(m.group(1))
 
@@ -67,7 +67,7 @@ def parse_single_constraint(constraint):  # type: (str) -> VersionConstraint
         )
 
     # PEP 440 Tilde range (~=)
-    m = TILDE_PEP440_CONSTRAINT.match(constraint)
+    m = TILDE_PEP440_CONSTRAINT.fullmatch(constraint)
     if m:
         precision = 1
         if m.group(3):
@@ -90,7 +90,7 @@ def parse_single_constraint(constraint):  # type: (str) -> VersionConstraint
         )
 
     # Caret range
-    m = CARET_CONSTRAINT.match(constraint)
+    m = CARET_CONSTRAINT.fullmatch(constraint)
     if m:
         version = Version.parse(m.group(1))
 
@@ -102,7 +102,7 @@ def parse_single_constraint(constraint):  # type: (str) -> VersionConstraint
         )
 
     # X Range
-    m = X_CONSTRAINT.match(constraint)
+    m = X_CONSTRAINT.fullmatch(constraint)
     if m:
         op = m.group(1)
         major = int(m.group(2))
@@ -136,7 +136,7 @@ def parse_single_constraint(constraint):  # type: (str) -> VersionConstraint
         return result
 
     # Basic comparator
-    m = BASIC_CONSTRAINT.match(constraint)
+    m = BASIC_CONSTRAINT.fullmatch(constraint)
     if m:
         op = m.group(1)
         version = m.group(2)

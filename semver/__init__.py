@@ -79,7 +79,7 @@ def parse_single_constraint(constraint):  # type: (str) -> VersionConstraint
         version = Version.parse(m.group(1))
 
         low = version
-        
+
         if precision == 2:
             high = version.stable.next_major
         else:
